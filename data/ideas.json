@@ -32,7 +32,8 @@
       "imagePrompt": "A cinematic Arctic Trucks vehicle facing extreme Arctic terrain, snow and rock subtly moving aside as if nature gives up first, premium automotive advertising, dramatic cold light, realistic, powerful, clean composition.",
       "videoPrompt": "A cinematic multi-shot sequence of an upgraded Arctic Trucks vehicle approaching extreme Arctic terrain. As the vehicle moves forward, the snow, rocks and ice subtly shift aside, as if nature itself gives up before the truck does. Premium automotive advertising style, realistic physics, dramatic cold light, powerful but controlled pacing.",
       "notes": ""
-    }
+    },
+    "order": 1
   },
   {
     "id": "at-002",
@@ -67,7 +68,8 @@
       "imagePrompt": "A premium Arctic Trucks vehicle standing before a massive mountain that appears to move and reshape itself, creating a new challenge, cinematic Arctic landscape, mythic but realistic, dramatic scale.",
       "videoPrompt": "A cinematic multi-shot automotive sequence. An Arctic Trucks vehicle stops before a massive mountain. The mountain slowly shifts and reshapes itself, opening a new and more difficult path, as if testing the vehicle. The truck enters calmly. Realistic, premium, dramatic scale, no fantasy glow.",
       "notes": ""
-    }
+    },
+    "order": 2
   },
   {
     "id": "at-003",
@@ -102,7 +104,8 @@
       "imagePrompt": "An Arctic Trucks vehicle driving through untouched Arctic wilderness while a blank expedition map draws itself behind the route, premium adventure automotive image, realistic, cinematic, discovery feeling.",
       "videoPrompt": "A cinematic multi-shot sequence. A driver opens a blank map. The Arctic Trucks vehicle drives into untouched wilderness with no roads. As it moves, the map begins drawing the route behind the vehicle. Premium expedition feeling, realistic, quiet confidence, discovery-focused.",
       "notes": ""
-    }
+    },
+    "order": 3
   },
   {
     "id": "at-004",
@@ -138,7 +141,8 @@
       "imagePrompt": "An upgraded Arctic Trucks vehicle standing in front of a regular parking garage that now feels too small for it, premium automotive transformation, realistic proportions, urban contrast, powerful presence.",
       "videoPrompt": "A cinematic before-and-after sequence. A regular pickup fits easily into a normal parking garage. Cut to Arctic Trucks workshop details: wheels, suspension, body upgrade. The upgraded vehicle returns to the same garage, but now the space feels too small and ordinary for it. Premium, realistic, transformation-focused.",
       "notes": ""
-    }
+    },
+    "order": 4
   },
   {
     "id": "vp-001",
@@ -803,6 +807,45 @@
         "twist": "De fleste blir glemt."
       },
       "logicalSynopsis": "Kalenderblader blar raskt forbi. Stopper på noen få datoer. Tekst: 'Dette er livet ditt.'"
+    }
+  },
+  {
+    "id": "uh-002",
+    "client": "Unike Hoteller",
+    "title": "Rommet husker mer enn deg",
+    "status": "survived",
+    "category": "Emotional storytelling",
+    "premise": "Et hotellrom står stille gjennom tidene.",
+    "twist": "Par kommer og går, tider og stiler endrer seg, men rommet bærer alle historiene videre.",
+    "tags": [
+      "romance",
+      "time",
+      "memory",
+      "ai-native"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Et rom er bare et rom.",
+        "twist": "Rommet husker alle som har vært der."
+      },
+      "logicalSynopsis": "Vi ser det samme hotellrommet igjen og igjen. Først et par i en eldre tidsperiode på romantisk ferie. Så et nytt par i en annen tid. Klær, frisyrer, koffert, fargepalett og små detaljer endrer seg fra tiår til tiår, men rommet er det samme. Rommet blir den stille bæreren av kjærlighetshistorier over tid.",
+      "suggestedVisuals": [
+        "Samme kameravinkel i det samme hotellrommet",
+        "Par i ulike tidsperioder",
+        "Kostymer og styling som endrer seg fra tiår til tiår",
+        "Små romantiske øyeblikk: ankomst, latter, dans, avskjed",
+        "Rommet som eneste konstante element"
+      ],
+      "multiShotSequence": [
+        "Wide shot: et vakkert hotellrom, klart og stille.",
+        "Et par fra en eldre tidsperiode entrer rommet.",
+        "Match cut til samme rom med et nytt par fra en ny tid.",
+        "Flere tidshopp: 60-tall, 80-tall, 2000-tall, nåtid.",
+        "Avslutt med tomt rom igjen, som om det husker alt."
+      ],
+      "imagePrompt": "A beautiful romantic hotel room shown from the same angle across multiple time periods. Different couples appear in the same room in different decades, with changing clothing, hairstyles, luggage, and styling details, while the room itself remains recognizable and constant. Emotional, elegant, cinematic, warm lighting, timeless atmosphere.",
+      "videoPrompt": "A cinematic sequence set in the same unique hotel room across different time periods. Show different couples arriving for romantic stays in the exact same room over several decades. Each era changes the wardrobe, hair, luggage, and subtle styling details, while the room remains visually consistent. Use match cuts between eras. The emotional tone is romantic, nostalgic, elegant, and warm. End on the empty room, as if it remembers every story.",
+      "notes": "Sterk fordi AI kan gjøre tidshopp og stilskifter enkelt, mens rommet forblir konstant. Føles både emosjonell og premium."
     }
   }
 ]

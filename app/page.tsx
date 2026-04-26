@@ -1,6 +1,5 @@
 "use client";
 
-import clients from "../data/clients.json";
 import type React from "react";
 import { useEffect, useState } from "react";
 
@@ -9,6 +8,7 @@ type Idea = {
   client: string;
   title: string;
   status: string;
+  order?: number;
   category?: string;
   premise: string;
   twist: string;
@@ -27,20 +27,36 @@ type Idea = {
   };
 };
 
+type Client = {
+  id: string;
+  name: string;
+  order?: number;
+};
+
 export default function Home() {
   const [typedIdeas, setTypedIdeas] = useState<Idea[]>([]);
+  const [clients, setClients] = useState<Client[]>([]);
   const [selectedClient, setSelectedClient] = useState("Arctic Trucks");
   const [selectedIdeaId, setSelectedIdeaId] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [editingSection, setEditingSection] = useState<string | null>(null);
   const [draftText, setDraftText] = useState("");
   const [saveMessage, setSaveMessage] = useState("");
+  const [layoutMode, setLayoutMode] = useState(false);
 
   useEffect(() => {
     fetch("/api/read-ideas")
       .then((res) => res.json())
       .then((data) => setTypedIdeas(data));
+
+    fetch("/api/read-clients")
+      .then((res) => res.json())
+      .then((data) => setClients(data));
   }, []);
+
+  const sortedClients = [...clients].sort(
+    (a, b) => (a.order ?? 999) - (b.order ?? 999)
+  );
 
   const filteredIdeas = typedIdeas.filter((idea) => {
     const matchesClient = idea.client === selectedClient;
@@ -55,10 +71,19 @@ export default function Home() {
     return matchesClient && matchesSearch;
   });
 
+  const sortedIdeas = [...filteredIdeas].sort(
+    (a, b) => (a.order ?? 999) - (b.order ?? 999)
+  );
+
   const selected =
-    filteredIdeas.find((idea) => idea.id === selectedIdeaId) ??
-    filteredIdeas[0] ??
+    sortedIdeas.find((idea) => idea.id === selectedIdeaId) ??
+    sortedIdeas[0] ??
     typedIdeas[0];
+
+  function showSaveMessage(text: string) {
+    setSaveMessage(text);
+    setTimeout(() => setSaveMessage(""), 1500);
+  }
 
   function handleClientClick(client: string) {
     setSelectedClient(client);
@@ -70,6 +95,84 @@ export default function Home() {
   function startEditing(sectionKey: string, currentValue: string) {
     setEditingSection(sectionKey);
     setDraftText(currentValue || "");
+  }
+
+  async function moveClient(clientId: string, direction: "up" | "down") {
+    const currentClients = [...clients].sort(
+      (a, b) => (a.order ?? 999) - (b.order ?? 999)
+    );
+
+    const index = currentClients.findIndex((client) => client.id === clientId);
+    if (index === -1) return;
+
+    const targetIndex = direction === "up" ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= currentClients.length) return;
+
+    const reordered = [...currentClients];
+    const [movedClient] = reordered.splice(index, 1);
+    reordered.splice(targetIndex, 0, movedClient);
+
+    const withNewOrder = reordered.map((client, newIndex) => ({
+      ...client,
+      order: newIndex + 1,
+    }));
+
+    setClients(withNewOrder);
+
+    const res = await fetch("/api/update-clients", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(withNewOrder),
+    });
+
+    if (res.ok) {
+      showSaveMessage("Layout saved");
+    } else {
+      showSaveMessage("Layout save failed");
+    }
+  }
+
+  async function moveIdea(ideaId: string, direction: "up" | "down") {
+    const clientIdeas = typedIdeas
+      .filter((idea) => idea.client === selectedClient)
+      .sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+
+    const index = clientIdeas.findIndex((idea) => idea.id === ideaId);
+    if (index === -1) return;
+
+    const targetIndex = direction === "up" ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= clientIdeas.length) return;
+
+    const reorderedClientIdeas = [...clientIdeas];
+    const [movedIdea] = reorderedClientIdeas.splice(index, 1);
+    reorderedClientIdeas.splice(targetIndex, 0, movedIdea);
+
+    const withNewOrder = reorderedClientIdeas.map((idea, newIndex) => ({
+      ...idea,
+      order: newIndex + 1,
+    }));
+
+    const updatedMap = new Map(withNewOrder.map((idea) => [idea.id, idea]));
+
+    const nextIdeas = typedIdeas.map((idea) => updatedMap.get(idea.id) ?? idea);
+
+    setTypedIdeas(nextIdeas);
+
+    const results = await Promise.all(
+      withNewOrder.map((idea) =>
+        fetch("/api/update-idea", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(idea),
+        })
+      )
+    );
+
+    if (results.every((res) => res.ok)) {
+      showSaveMessage("Idea order saved");
+    } else {
+      showSaveMessage("Idea order save failed");
+    }
   }
 
   async function saveSection(sectionKey: string) {
@@ -124,10 +227,9 @@ export default function Home() {
 
       setEditingSection(null);
       setDraftText("");
-      setSaveMessage("Saved");
-      setTimeout(() => setSaveMessage(""), 1500);
+      showSaveMessage("Saved");
     } else {
-      setSaveMessage("Save failed");
+      showSaveMessage("Save failed");
     }
   }
 
@@ -139,19 +241,45 @@ export default function Home() {
 
         <h3 style={styles.sectionTitle}>Kunder</h3>
 
-        {clients.map((client: any) => (
-          <button
-            key={client.name}
-            onClick={() => handleClientClick(client.name)}
-            style={{
-              ...styles.client,
-              background: client.name === selectedClient ? "#111" : "#f2f2f2",
-              color: client.name === selectedClient ? "#fff" : "#111",
-            }}
-          >
-            {client.name}
-          </button>
+        {sortedClients.map((client) => (
+          <div key={client.id} style={styles.clientRow}>
+            <button
+              onClick={() => handleClientClick(client.name)}
+              style={{
+                ...styles.client,
+                background:
+                  client.name === selectedClient ? "#111" : "#f2f2f2",
+                color: client.name === selectedClient ? "#fff" : "#111",
+              }}
+            >
+              {client.name}
+            </button>
+
+            {layoutMode && (
+              <div style={styles.moveControls}>
+                <button
+                  style={styles.moveButton}
+                  onClick={() => moveClient(client.id, "up")}
+                >
+                  ↑
+                </button>
+                <button
+                  style={styles.moveButton}
+                  onClick={() => moveClient(client.id, "down")}
+                >
+                  ↓
+                </button>
+              </div>
+            )}
+          </div>
         ))}
+
+        <button
+          onClick={() => setLayoutMode(!layoutMode)}
+          style={layoutMode ? styles.layoutButtonActive : styles.layoutButton}
+        >
+          {layoutMode ? "Done layout" : "Edit layout"}
+        </button>
 
         <a href="/admin" style={styles.adminButton}>
           Admin
@@ -179,15 +307,17 @@ export default function Home() {
           </a>
         </div>
 
+        {layoutMode && search && (
+          <div style={styles.layoutWarning}>
+            Clear search before moving ideas. Reordering works best on the full
+            list.
+          </div>
+        )}
+
         <div style={styles.grid}>
-          {filteredIdeas.map((idea, index) => (
-            <button
+          {sortedIdeas.map((idea, index) => (
+            <article
               key={idea.id}
-              onClick={() => {
-                setSelectedIdeaId(idea.id);
-                setEditingSection(null);
-                setDraftText("");
-              }}
               style={{
                 ...styles.card,
                 border:
@@ -196,21 +326,56 @@ export default function Home() {
                     : "1px solid #e5e0d8",
               }}
             >
-              <div style={styles.number}>{index + 1}</div>
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => {
+                  setSelectedIdeaId(idea.id);
+                  setEditingSection(null);
+                  setDraftText("");
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setSelectedIdeaId(idea.id);
+                    setEditingSection(null);
+                    setDraftText("");
+                  }
+                }}
+                style={styles.cardClickArea}
+              >
+                <div style={styles.number}>{index + 1}</div>
 
-              <h3 style={styles.cardTitle}>{idea.title}</h3>
-              <p style={styles.text}>{idea.twist}</p>
+                <h3 style={styles.cardTitle}>{idea.title}</h3>
+                <p style={styles.text}>{idea.twist}</p>
 
-              <div style={styles.meta}>
-                <span style={styles.badge}>{idea.status}</span>
+                <div style={styles.meta}>
+                  <span style={styles.badge}>{idea.status}</span>
 
-                {idea.tags?.map((tag) => (
-                  <span key={tag} style={styles.tag}>
-                    {tag}
-                  </span>
-                ))}
+                  {idea.tags?.map((tag) => (
+                    <span key={tag} style={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </button>
+
+              {layoutMode && !search && (
+                <div style={styles.cardMoveControls}>
+                  <button
+                    style={styles.moveButton}
+                    onClick={() => moveIdea(idea.id, "up")}
+                  >
+                    ↑
+                  </button>
+                  <button
+                    style={styles.moveButton}
+                    onClick={() => moveIdea(idea.id, "down")}
+                  >
+                    ↓
+                  </button>
+                </div>
+              )}
+            </article>
           ))}
         </div>
       </section>
@@ -449,7 +614,8 @@ const styles: Record<string, React.CSSProperties> = {
   page: {
     display: "grid",
     gridTemplateColumns: "260px 1fr 420px",
-    minHeight: "100vh",
+    height: "100vh",
+    overflow: "hidden",
     background: "#faf7f0",
     color: "#111",
     fontFamily: "Arial, sans-serif",
@@ -458,6 +624,8 @@ const styles: Record<string, React.CSSProperties> = {
     padding: 24,
     borderRight: "1px solid #ddd",
     background: "#fff",
+    overflowY: "auto",
+    height: "100vh",
   },
   logo: {
     margin: 0,
@@ -474,19 +642,26 @@ const styles: Record<string, React.CSSProperties> = {
     letterSpacing: 1,
     color: "#777",
   },
+  clientRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    marginBottom: 8,
+  },
   client: {
     display: "block",
     width: "100%",
     textAlign: "left",
     padding: "12px 14px",
     borderRadius: 12,
-    marginBottom: 8,
     fontWeight: 700,
     border: 0,
     cursor: "pointer",
   },
   list: {
     padding: 32,
+    overflowY: "auto",
+    height: "100vh",
   },
   topbar: {
     display: "flex",
@@ -498,15 +673,6 @@ const styles: Record<string, React.CSSProperties> = {
   heading: {
     fontSize: 36,
     margin: 0,
-  },
-  button: {
-    background: "#111",
-    color: "#fff",
-    border: 0,
-    borderRadius: 999,
-    padding: "12px 18px",
-    fontWeight: 700,
-    cursor: "pointer",
   },
   buttonLink: {
     background: "#111",
@@ -530,7 +696,16 @@ const styles: Record<string, React.CSSProperties> = {
     padding: 20,
     boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
     textAlign: "left",
+  },
+  cardClickArea: {
     cursor: "pointer",
+  },
+  cardMoveControls: {
+    display: "flex",
+    gap: 8,
+    marginTop: 16,
+    paddingTop: 12,
+    borderTop: "1px solid #eee",
   },
   number: {
     width: 32,
@@ -577,7 +752,7 @@ const styles: Record<string, React.CSSProperties> = {
     background: "#fff",
     borderLeft: "1px solid #ddd",
     overflowY: "auto",
-    maxHeight: "100vh",
+    height: "100vh",
   },
   detailTitle: {
     marginTop: 0,
@@ -607,7 +782,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   adminButton: {
     display: "block",
-    marginTop: 30,
+    marginTop: 12,
     padding: "12px 14px",
     borderRadius: 12,
     background: "#eaeaea",
@@ -630,6 +805,15 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 13,
     fontWeight: 700,
     marginBottom: 12,
+  },
+  layoutWarning: {
+    background: "#fff4cc",
+    color: "#6b4c00",
+    padding: "10px 14px",
+    borderRadius: 12,
+    marginBottom: 16,
+    fontWeight: 700,
+    fontSize: 13,
   },
   blockHeader: {
     display: "flex",
@@ -679,6 +863,45 @@ const styles: Record<string, React.CSSProperties> = {
     border: 0,
     borderRadius: 999,
     padding: "8px 14px",
+    cursor: "pointer",
+    fontWeight: 700,
+  },
+  layoutButton: {
+    display: "block",
+    width: "100%",
+    marginTop: 30,
+    padding: "12px 14px",
+    borderRadius: 12,
+    background: "#f2f2f2",
+    color: "#111",
+    fontWeight: 700,
+    textAlign: "center",
+    border: 0,
+    cursor: "pointer",
+  },
+  layoutButtonActive: {
+    display: "block",
+    width: "100%",
+    marginTop: 30,
+    padding: "12px 14px",
+    borderRadius: 12,
+    background: "#111",
+    color: "#fff",
+    fontWeight: 700,
+    textAlign: "center",
+    border: 0,
+    cursor: "pointer",
+  },
+  moveControls: {
+    display: "flex",
+    gap: 4,
+  },
+  moveButton: {
+    width: 30,
+    height: 30,
+    borderRadius: 8,
+    border: "1px solid #ddd",
+    background: "#fff",
     cursor: "pointer",
     fontWeight: 700,
   },

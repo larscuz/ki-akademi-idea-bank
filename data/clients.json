@@ -1,42 +1,52 @@
 [
   {
-    "id": "viking-planet",
-    "name": "Viking Planet"
+    "id": "arctic-trucks",
+    "name": "Arctic Trucks",
+    "order": 1
   },
   {
-    "id": "arctic-trucks",
-    "name": "Arctic Trucks"
+    "id": "viking-planet",
+    "name": "Viking Planet",
+    "order": 2
   },
   {
     "id": "mini-bottle-gallery",
-    "name": "Mini Bottle Gallery"
+    "name": "Mini Bottle Gallery",
+    "order": 3
   },
   {
     "id": "paradox-museum-oslo",
-    "name": "Paradox Museum Oslo"
+    "name": "Paradox Museum Oslo",
+    "order": 4
   },
   {
-    "id": "visit-oslo",
-    "name": "Visit Oslo"
-  },
-  {
-    "id": "ostern-brug",
-    "name": "Østern Brug"
+    "id": "unike-hoteller",
+    "name": "Unike Hoteller",
+    "order": 5
   },
   {
     "id": "edge-performance",
-    "name": "Edge Performance"
+    "name": "Edge Performance",
+    "order": 6
+  },
+  {
+    "id": "ostern-brug",
+    "name": "Østern Brug",
+    "order": 7
+  },
+  {
+    "id": "visit-oslo",
+    "name": "Visit Oslo",
+    "order": 8
   },
   {
     "id": "ki-akademi",
-    "name": "KI-Akademi"
+    "name": "KI-Akademi",
+    "order": 9
   },
   {
     "id": "generic",
-    "name": "Generic / Unassigned"
-  },
-  {
-    "id": "test-client",
-    "name": "Test Client"
+    "name": "Generic / Unassigned",
+    "order": 10
   }
 ]
