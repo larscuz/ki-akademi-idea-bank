@@ -1,0 +1,545 @@
+[
+  {
+    "id": "at-001",
+    "client": "Arctic Trucks",
+    "title": "Naturen gir opp først",
+    "status": "survived",
+    "category": "Transformation / Nature",
+    "premise": "En Arctic Trucks-bil kjører mot ekstremt terreng.",
+    "twist": "Terrenget flytter seg unna bilen som om naturen gir opp først.",
+    "tags": [
+      "natur",
+      "transformasjon",
+      "premium"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "En Arctic Trucks-bil kjører mot ekstremt terreng.",
+        "twist": "Terrenget flytter seg unna bilen som om naturen gir opp først."
+      },
+      "logicalSynopsis": "Ideen snur forventningen om at bilen skal overvinne naturen. I stedet gir naturen opp før bilen gjør det, og flytter seg",
+      "suggestedVisuals": [
+        "En massiv Arctic Trucks-bil foran snø, stein og is.",
+        "Terrenget bøyer seg, sprekker eller trekker seg unna.",
+        "Bilen fortsetter rolig, uten dramatisk kamp."
+      ],
+      "multiShotSequence": [
+        "Wide shot: ekstremt terreng foran bilen.",
+        "Close-up: hjulene begynner å rulle frem.",
+        "Surreal shot: snø og stein flytter seg unna.",
+        "Hero shot: bilen kjører gjennom landskapet som om verden åpner seg."
+      ],
+      "imagePrompt": "A cinematic Arctic Trucks vehicle facing extreme Arctic terrain, snow and rock subtly moving aside as if nature gives up first, premium automotive advertising, dramatic cold light, realistic, powerful, clean composition.",
+      "videoPrompt": "A cinematic multi-shot sequence of an upgraded Arctic Trucks vehicle approaching extreme Arctic terrain. As the vehicle moves forward, the snow, rocks and ice subtly shift aside, as if nature itself gives up before the truck does. Premium automotive advertising style, realistic physics, dramatic cold light, powerful but controlled pacing.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "at-002",
+    "client": "Arctic Trucks",
+    "title": "Fjellet tester bilen",
+    "status": "survived",
+    "category": "Nature as Character",
+    "premise": "Bilen stopper foran et enormt fjell.",
+    "twist": "Fjellet flytter seg og lager nye utfordringer, som om det tester bilen.",
+    "tags": [
+      "natur",
+      "test",
+      "mytisk"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Bilen stopper foran et enormt fjell.",
+        "twist": "Fjellet flytter seg og lager nye utfordringer, som om det tester bilen."
+      },
+      "logicalSynopsis": "Naturen blir en aktiv motstander. Ikke ond, men respektfull — som om fjellet vil se hva bilen tåler.",
+      "suggestedVisuals": [
+        "Truck foran et massivt fjell.",
+        "Fjellet forskyver seg langsomt.",
+        "En ny og vanskeligere passasje åpnes."
+      ],
+      "multiShotSequence": [
+        "Wide shot: bilen står liten foran fjellet.",
+        "Ground rumble: fjellet begynner å bevege seg.",
+        "New path appears: brattere, smalere, mer ekstrem.",
+        "Truck enters the path with calm confidence."
+      ],
+      "imagePrompt": "A premium Arctic Trucks vehicle standing before a massive mountain that appears to move and reshape itself, creating a new challenge, cinematic Arctic landscape, mythic but realistic, dramatic scale.",
+      "videoPrompt": "A cinematic multi-shot automotive sequence. An Arctic Trucks vehicle stops before a massive mountain. The mountain slowly shifts and reshapes itself, opening a new and more difficult path, as if testing the vehicle. The truck enters calmly. Realistic, premium, dramatic scale, no fantasy glow.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "at-003",
+    "client": "Arctic Trucks",
+    "title": "Kartet tegner seg selv",
+    "status": "survived",
+    "category": "Discovery",
+    "premise": "Føreren åpner et kart som er tomt.",
+    "twist": "Når bilen kjører TEST, tegner kartet seg selv bak bilen.",
+    "tags": [
+      "kart",
+      "oppdagelse",
+      "eventyr"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Føreren åpner et kart som er tomt.",
+        "twist": "Når bilen kjører, tegner kartet seg selv bak bilen."
+      },
+      "logicalSynopsis": "Bilen følger ikke en rute. Den skaper ruten. Dette gir følelsen av oppdagelse og ekte fremkommelighet.",
+      "suggestedVisuals": [
+        "Tomt kart i førerens hånd.",
+        "Truck i villmark uten veier.",
+        "Linjer tegnes automatisk på kartet etter hvert som bilen kjører."
+      ],
+      "multiShotSequence": [
+        "Close-up: blank map.",
+        "Wide shot: truck enters untouched terrain.",
+        "Insert: map begins drawing itself.",
+        "Drone shot: route appears behind the vehicle."
+      ],
+      "imagePrompt": "An Arctic Trucks vehicle driving through untouched Arctic wilderness while a blank expedition map draws itself behind the route, premium adventure automotive image, realistic, cinematic, discovery feeling.",
+      "videoPrompt": "A cinematic multi-shot sequence. A driver opens a blank map. The Arctic Trucks vehicle drives into untouched wilderness with no roads. As it moves, the map begins drawing the route behind the vehicle. Premium expedition feeling, realistic, quiet confidence, discovery-focused.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "at-004",
+    "client": "Arctic Trucks",
+    "title": "Den passer ikke lenger",
+    "status": "survived",
+    "category": "Upgrade / Transformation",
+    "premise": "En vanlig truck passer fint i et parkeringshus før oppgradering.",
+    "twist": "Etter Arctic Trucks-oppgraderingen føles parkeringshuset plutselig for lite.",
+    "tags": [
+      "oppgradering",
+      "transformasjon",
+      "størrelse"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "En vanlig truck passer fint i et parkeringshus før oppgradering.",
+        "twist": "Etter Arctic Trucks-oppgraderingen føles parkeringshuset plutselig for lite."
+      },
+      "logicalSynopsis": "Samme bil er blitt noe annet. Ikke bare større fysisk, men større i nærvær. Verden den kom fra virker for liten.",
+      "suggestedVisuals": [
+        "Vanlig truck i et vanlig parkeringshus.",
+        "Verksted-transformasjon.",
+        "Oppgradert Arctic Trucks-versjon foran samme parkeringshus.",
+        "Parkeringshuset virker plutselig trangt og lavt."
+      ],
+      "multiShotSequence": [
+        "Before: truck enters parking garage easily.",
+        "Workshop: close-ups of wheels, suspension, body upgrade.",
+        "After: truck returns to the same garage.",
+        "Twist: the garage feels too small, low and ordinary for the upgraded vehicle."
+      ],
+      "imagePrompt": "An upgraded Arctic Trucks vehicle standing in front of a regular parking garage that now feels too small for it, premium automotive transformation, realistic proportions, urban contrast, powerful presence.",
+      "videoPrompt": "A cinematic before-and-after sequence. A regular pickup fits easily into a normal parking garage. Cut to Arctic Trucks workshop details: wheels, suspension, body upgrade. The upgraded vehicle returns to the same garage, but now the space feels too small and ordinary for it. Premium, realistic, transformation-focused.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "vp-001",
+    "client": "Viking Planet",
+    "title": "Turisten som ikke får tatt bilde",
+    "status": "survived",
+    "category": "Tourist / Selfie",
+    "premise": "Turist prøver å ta selfie i Oslo.",
+    "twist": "På skjermen ser han seg selv som viking.",
+    "tags": [
+      "selfie",
+      "oslo",
+      "turist"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Turist prøver å ta selfie i Oslo.",
+        "twist": "På skjermen ser han seg selv som viking."
+      },
+      "logicalSynopsis": "En kjent turist-handling får en umiddelbar historisk glitch. Opplevelsen selges som noe som forandrer hvordan du ser deg selv.",
+      "suggestedVisuals": [
+        "Turist foran Oslo-landemerke.",
+        "Han prøver å ta selfie.",
+        "Mobilskjermen viser ham som viking.",
+        "Virkeligheten rundt ham er fortsatt normal."
+      ],
+      "multiShotSequence": [
+        "Tourist raises phone for selfie.",
+        "He adjusts angle, frustrated.",
+        "Phone screen reveal: he appears as a Viking.",
+        "He looks up, confused and fascinated."
+      ],
+      "imagePrompt": "A tourist in modern Oslo taking a selfie, but on the phone screen he appears as a Viking version of himself, realistic city background, humorous cinematic ad image, clean composition.",
+      "videoPrompt": "A short cinematic ad sequence. A tourist in modern Oslo tries to take a selfie. He adjusts the phone several times. When he looks at the screen, he sees himself transformed into a Viking, while the real world remains normal. Subtle humor, realistic, visually clear.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "vp-002",
+    "client": "Viking Planet",
+    "title": "Den dårligste vikingen i historien",
+    "status": "survived",
+    "category": "VR / Interactive Humor",
+    "premise": "Middelaldrende mann tar på VR-briller.",
+    "twist": "Vikingene inne i opplevelsen ser ham og reagerer live på hvor klumsete han er.",
+    "tags": [
+      "vr",
+      "humor",
+      "interactive"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Middelaldrende mann tar på VR-briller.",
+        "twist": "Vikingene inne i opplevelsen ser ham og reagerer live på hvor klumsete han er."
+      },
+      "logicalSynopsis": "I stedet for at han bare observerer historien, observerer historien ham. Det gjør opplevelsen levende og morsom.",
+      "suggestedVisuals": [
+        "Middelaldrende mann med VR-briller.",
+        "Han beveger seg klønete.",
+        "Vikinger inne i opplevelsen stopper og stirrer.",
+        "De reagerer intelligent på det han gjør."
+      ],
+      "multiShotSequence": [
+        "Man puts on VR goggles.",
+        "Inside VR: he appears among Vikings.",
+        "He drops a sword or trips.",
+        "Vikings react in real time, disappointed and confused."
+      ],
+      "imagePrompt": "A middle-aged man wearing VR goggles inside an immersive Viking experience, while realistic Vikings inside the simulation stare at him and react to his clumsy behavior, humorous, cinematic, high realism.",
+      "videoPrompt": "A comedic multi-shot VR ad sequence. A middle-aged man puts on VR goggles at Viking Planet. Inside the Viking world, the Vikings can see him and react in real time. He behaves clumsily, drops weapons and misunderstands the situation. The Vikings respond like intelligent characters, judging him with dry humor. Realistic, immersive, funny.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "vp-003",
+    "client": "Viking Planet",
+    "title": "Alle i Oslo er vikinger (bare ikke deg)",
+    "status": "survived",
+    "category": "Oslo / Absurd Reality",
+    "premise": "En mann går gjennom Oslo sentrum.",
+    "twist": "Alle andre er vikinger, men oppfører seg helt normalt.",
+    "tags": [
+      "oslo",
+      "absurd",
+      "byliv"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "En mann går gjennom Oslo sentrum.",
+        "twist": "Alle andre er vikinger, men oppfører seg helt normalt."
+      },
+      "logicalSynopsis": "Det absurde blir morsomt fordi ingen reagerer. Vikingene er ikke invasjon — de er bare hverdagen.",
+      "suggestedVisuals": [
+        "Moderne Oslo-gate.",
+        "Vikinger på elsparkesykkel, kafé og trikk.",
+        "Hovedpersonen er den eneste vanlige.",
+        "Alle oppfører seg helt normalt."
+      ],
+      "multiShotSequence": [
+        "Man walks through Oslo.",
+        "He notices a Viking drinking coffee.",
+        "More Vikings appear in normal city situations.",
+        "He realizes he is the only non-Viking."
+      ],
+      "imagePrompt": "Modern Oslo street scene where everyone except one confused man is dressed as Vikings but behaving completely normally, cinematic absurd comedy, realistic daylight, clean visual gag.",
+      "videoPrompt": "A surreal comedy ad sequence in modern Oslo. A normal man walks through the city and slowly realizes everyone else is a Viking: buying coffee, riding scooters, waiting for the tram. Nobody reacts. He is the only one who finds it strange. Realistic, understated humor.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "vp-004",
+    "client": "Viking Planet",
+    "title": "Vikingene går inn i hulen",
+    "status": "survived",
+    "category": "Museum / Meta",
+    "premise": "Vikinger tør hverandre til å gå inn i en mystisk hule.",
+    "twist": "Hulen er Viking Planet. De ser på moderne besøkende, som også ser på dem.",
+    "tags": [
+      "museum",
+      "meta",
+      "hologram"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Vikinger tør hverandre til å gå inn i en mystisk hule.",
+        "twist": "Hulen er Viking Planet. De ser på moderne besøkende, som også ser på dem."
+      },
+      "logicalSynopsis": "Begge sider tror de ser på utstilling. Publikum og vikinger blir like fremmede for hverandre.",
+      "suggestedVisuals": [
+        "Vikinger foran mørk hule.",
+        "De går inn nervøst.",
+        "De dukker opp som hologrammer inne på Viking Planet.",
+        "Besøkende og vikinger studerer hverandre."
+      ],
+      "multiShotSequence": [
+        "Vikings dare each other to enter a cave.",
+        "They step into darkness.",
+        "Cut: they appear as hologram-like figures inside Viking Planet.",
+        "They stare at modern visitors while visitors stare back."
+      ],
+      "imagePrompt": "Vikings entering a mysterious cave and appearing as holographic figures inside a modern Viking museum, staring at modern visitors who stare back at them, meta museum concept, cinematic, realistic.",
+      "videoPrompt": "A cinematic meta-comedy sequence. Vikings dare each other to enter a mysterious cave. When they step inside, they appear as hologram-like figures inside Viking Planet in modern Oslo. They look at strange modern visitors, while the visitors look back at them as an exhibition. Both sides are on display.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "vp-005",
+    "client": "Viking Planet",
+    "title": "Historien buffrer",
+    "status": "survived",
+    "category": "Tech / Absurd",
+    "premise": "Episk vikingkamp starter.",
+    "twist": "Alt stopper. Et loading-ikon vises på himmelen.",
+    "tags": [
+      "tech",
+      "absurd",
+      "loading"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Episk vikingkamp starter.",
+        "twist": "Alt stopper. Et loading-ikon vises på himmelen."
+      },
+      "logicalSynopsis": "Historisk drama brytes av moderne digital frustrasjon. Det er umiddelbart visuelt og lett å forstå.",
+      "suggestedVisuals": [
+        "Vikingkamp i dramatisk øyeblikk.",
+        "Alle fryser midt i bevegelsen.",
+        "Loading-symbol på himmelen.",
+        "Vikingene ser opp, irriterte."
+      ],
+      "multiShotSequence": [
+        "Epic Viking battle begins.",
+        "Weapons rise, faces intense.",
+        "Everything freezes suddenly.",
+        "A giant loading icon appears in the sky."
+      ],
+      "imagePrompt": "An epic Viking battle frozen mid-action with a giant loading icon in the sky, realistic cinematic historical scene with absurd digital humor, dramatic lighting.",
+      "videoPrompt": "A cinematic Viking battle sequence begins with full dramatic energy. Just before the first clash, everything freezes. A giant loading icon appears in the sky. The Vikings look up, confused and annoyed. Historical realism meets modern digital absurdity.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "vp-006",
+    "client": "Viking Planet",
+    "title": "Vikingene leser kommentarfelt på runesten",
+    "status": "survived",
+    "category": "Runestone / Social Media",
+    "premise": "Vikinger samles alvorlig rundt en runesten.",
+    "twist": "Runestenen viser kommentarfelt/anmeldelser om dem.",
+    "tags": [
+      "runesten",
+      "kommentarfelt",
+      "humor"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Vikinger samles alvorlig rundt en runesten.",
+        "twist": "Runestenen viser kommentarfelt/anmeldelser om dem."
+      },
+      "logicalSynopsis": "Runestenen blir et historisk kommentarfelt. Moderne feedback-kultur kolliderer med vikingstolthet.",
+      "suggestedVisuals": [
+        "Vikinger rundt runesten.",
+        "Runer ser ut som et kommentarfelt.",
+        "Vikingene blir fornærmet av anmeldelsene.",
+        "En eldre viking leser høyt med alvor."
+      ],
+      "multiShotSequence": [
+        "Vikings gather around a runestone.",
+        "Close-up: the runes behave like a comment section.",
+        "A Viking reads a bad comment aloud.",
+        "The group reacts with wounded pride."
+      ],
+      "imagePrompt": "A group of Vikings gathered around an ancient runestone that functions like a comment section, reading reviews about themselves, offended and serious, cinematic historical comedy, realistic.",
+      "videoPrompt": "A comedic historical sequence. Vikings gather around a runestone with great seriousness. The runes start behaving like a modern comment section. One Viking reads a negative review aloud. The group becomes deeply offended. Realistic Viking world, dry humor.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "vp-007",
+    "client": "Viking Planet",
+    "title": "Skipet er parkert feil",
+    "status": "survived",
+    "category": "Oslo / Bureaucracy",
+    "premise": "Et vikingskip ankommer dramatisk Oslo.",
+    "twist": "En parkeringsvakt setter bot på skipet.",
+    "tags": [
+      "oslo",
+      "system",
+      "parkering"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Et vikingskip ankommer dramatisk Oslo.",
+        "twist": "En parkeringsvakt setter bot på skipet."
+      },
+      "logicalSynopsis": "Episk ankomst møter norsk byråkrati. Det store historiske øyeblikket blir stoppet av parkeringsregler.",
+      "suggestedVisuals": [
+        "Vikingskip kommer dramatisk inn mot Oslo.",
+        "Vikinger går i land.",
+        "Parkeringsvakt nærmer seg rolig.",
+        "Bot festes på skipet."
+      ],
+      "multiShotSequence": [
+        "Epic Viking ship arrival in Oslo.",
+        "Vikings step onto land dramatically.",
+        "A parking officer enters frame.",
+        "The officer writes a ticket and places it on the ship."
+      ],
+      "imagePrompt": "A dramatic Viking ship parked incorrectly in modern Oslo while a parking officer calmly writes a ticket, cinematic absurd comedy, realistic city and historical contrast.",
+      "videoPrompt": "A cinematic comedy sequence. A Viking ship arrives dramatically in modern Oslo. Vikings step ashore with heroic energy. A calm parking officer walks into frame, writes a parking ticket and attaches it to the ship. The Vikings stare in disbelief.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "vp-008",
+    "client": "Viking Planet",
+    "title": "Feil oppgradering",
+    "status": "survived",
+    "category": "Subscription / Tech",
+    "premise": "En viking får et nytt sverd.",
+    "twist": "Sverdet krever abonnement før det kan brukes.",
+    "tags": [
+      "subscription",
+      "tech",
+      "sverd"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "En viking får et nytt sverd.",
+        "twist": "Sverdet krever abonnement før det kan brukes."
+      },
+      "logicalSynopsis": "Den mest analoge gjenstanden — sverdet — blir fanget i moderne abonnementslogikk.",
+      "suggestedVisuals": [
+        "Smed gir viking et nytt sverd.",
+        "Viking løfter sverdet dramatisk.",
+        "Et subtilt varsel dukker opp.",
+        "Viking skjønner at det krever abonnement."
+      ],
+      "multiShotSequence": [
+        "Blacksmith presents a new sword.",
+        "Viking lifts it proudly.",
+        "The sword refuses to activate.",
+        "A subscription requirement appears."
+      ],
+      "imagePrompt": "A Viking receiving a new sword from a blacksmith, only to discover it requires a subscription before use, cinematic historical comedy, realistic, absurd modern tech logic.",
+      "videoPrompt": "A cinematic Viking comedy sequence. A blacksmith presents a powerful new sword. The Viking lifts it proudly, but nothing happens. A subtle subscription-required message appears. The Viking slowly lowers the sword, confused and offended.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "vp-009",
+    "client": "Viking Planet",
+    "title": "Viking plyndrer → ber om kvittering",
+    "status": "survived",
+    "category": "Bureaucracy / Looting",
+    "premise": "Viking plyndrer gull dramatisk.",
+    "twist": "Han stopper og ber om kvittering.",
+    "tags": [
+      "byråkrati",
+      "humor",
+      "plyndring"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Viking plyndrer gull dramatisk.",
+        "twist": "Han stopper og ber om kvittering."
+      },
+      "logicalSynopsis": "Plyndring forventes å være kaotisk og brutal. Twist: den blir ryddig, administrativ og regnskapsmessig korrekt.",
+      "suggestedVisuals": [
+        "Viking tar gull dramatisk.",
+        "Han stopper opp før han går.",
+        "Han spør alvorlig om kvittering.",
+        "Alle blir forvirret."
+      ],
+      "multiShotSequence": [
+        "Viking grabs gold dramatically.",
+        "He turns to leave.",
+        "He stops and looks back.",
+        "He politely asks for a receipt."
+      ],
+      "imagePrompt": "A Viking looting gold dramatically, then pausing to politely ask for a receipt, cinematic historical comedy, realistic, absurd bureaucratic humor.",
+      "videoPrompt": "A short comedic Viking sequence. A Viking dramatically loots gold from a hall. Just as he turns to leave, he stops, looks back and politely asks for a receipt. The room goes silent. Realistic Viking setting, dry humor.",
+      "notes": ""
+    }
+  },
+  {
+    "id": "ep-001",
+    "client": "Edge Performance",
+    "title": "Motoren som ikke skjønner at flyet er lite",
+    "status": "survived",
+    "category": "Performance / Absurd Scale",
+    "premise": "Et lite lettfly står stille på bakken. Alt ser rolig og kontrollert ut.",
+    "twist": "Når Edge Performance-motoren starter, reagerer omgivelsene som om noe mye større har våknet.",
+    "tags": [
+      "aviation",
+      "engine",
+      "performance",
+      "humor"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Et lite lettfly står stille på bakken. Alt ser rolig og kontrollert ut.",
+        "twist": "Når Edge Performance-motoren starter, reagerer omgivelsene som om noe mye større har våknet."
+      },
+      "logicalSynopsis": "Edge Performance bygger og oppgraderer små flymotorer med høy ytelse. Ideen gjør forskjellen synlig ved å la verden reagere fysisk på kraften, uten at flyet selv trenger å gjøre noe dramatisk.",
+      "suggestedVisuals": [
+        "Et lite fly på en rolig flystripe.",
+        "Close-up av motor / propell / cockpit.",
+        "Motoren starter.",
+        "Gress, støv, jakker og kaffekopper reagerer som om en mye større maskin nettopp våknet.",
+        "Piloten smiler rolig, som om dette er helt normalt."
+      ],
+      "multiShotSequence": [
+        "Wide shot: a small aircraft parked quietly on a calm airstrip.",
+        "Close-up: pilot hand switches on the engine.",
+        "Detail shot: propeller begins to move with controlled precision.",
+        "Reaction shot: grass, dust, jackets and coffee cups move as if a much larger aircraft has awakened.",
+        "Final hero shot: the small aircraft remains elegant and calm while the environment reveals the hidden power."
+      ],
+      "imagePrompt": "A small high-performance light aircraft on a quiet airstrip, engine just started, the surrounding grass, dust and loose objects reacting as if a much larger machine has awakened, premium aviation performance advertising, realistic, cinematic, clean composition.",
+      "videoPrompt": "A cinematic multi-shot aviation performance ad. A small light aircraft stands quietly on a calm airstrip. Close-up on the pilot starting the engine. The propeller begins to move with controlled precision. Around the aircraft, grass, dust, jackets and coffee cups react as if a much larger machine has awakened. The aircraft itself remains elegant and composed. Realistic, premium, understated power, no exaggerated fantasy effects.",
+      "notes": "Based on Edge Performance’s focus on performance upgrades, fuel injection conversions, modern aero engines and high power-to-weight aircraft solutions."
+    }
+  },
+  {
+    "id": "pm-001",
+    "title": "Du går inn normal — kommer ut feil",
+    "status": "survived",
+    "category": "Absurd transformation",
+    "premise": "En person går normalt inn døren til Paradox Museum.",
+    "twist": "Når de kommer ut igjen, går de sidelengs, baklengs eller opp-ned — helt seriøst som om det er normalt.",
+    "tags": [
+      "absurd",
+      "body",
+      "unexpected"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Besøkende går inn som normalt menneske.",
+        "twist": "Kommer ut fysisk 'feil' — men oppfører seg som alt er normalt."
+      },
+      "logicalSynopsis": "En vanlig person går inn døren til museet. Vi ser døren lukke seg. Etter noen sekunder åpnes døren igjen, og personen kommer ut — men beveger seg fysisk feil, for eksempel sidelengs eller opp-ned. Personen oppfører seg helt normalt og går videre i byen.",
+      "suggestedVisuals": [
+        "Front door of museum",
+        "Normal walk in",
+        "Door opens again",
+        "Person exits moving sideways",
+        "People outside react subtly"
+      ],
+      "multiShotSequence": [
+        "Wide shot: Person approaches museum entrance.",
+        "Medium shot: Person walks inside normally.",
+        "Cut: Door closed.",
+        "Door opens again.",
+        "Person exits walking sideways.",
+        "Wide shot: Person walks into city."
+      ],
+      "imagePrompt": "",
+      "videoPrompt": "",
+      "notes": "Kan lages med kroppstracking og AI-transformasjon."
+    },
+    "client": "Paradox Museum Oslo"
+  }
+]

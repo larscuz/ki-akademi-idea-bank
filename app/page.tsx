@@ -1,65 +1,685 @@
-import Image from "next/image";
+"use client";
+
+import clients from "../data/clients.json";
+import type React from "react";
+import { useEffect, useState } from "react";
+
+type Idea = {
+  id: string;
+  client: string;
+  title: string;
+  status: string;
+  category?: string;
+  premise: string;
+  twist: string;
+  tags?: string[];
+  sections?: {
+    coreIdea?: {
+      premise?: string;
+      twist?: string;
+    };
+    logicalSynopsis?: string;
+    suggestedVisuals?: string[];
+    multiShotSequence?: string[];
+    imagePrompt?: string;
+    videoPrompt?: string;
+    notes?: string;
+  };
+};
 
 export default function Home() {
+  const [typedIdeas, setTypedIdeas] = useState<Idea[]>([]);
+  const [selectedClient, setSelectedClient] = useState("Arctic Trucks");
+  const [selectedIdeaId, setSelectedIdeaId] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+  const [editingSection, setEditingSection] = useState<string | null>(null);
+  const [draftText, setDraftText] = useState("");
+  const [saveMessage, setSaveMessage] = useState("");
+
+  useEffect(() => {
+    fetch("/api/read-ideas")
+      .then((res) => res.json())
+      .then((data) => setTypedIdeas(data));
+  }, []);
+
+  const filteredIdeas = typedIdeas.filter((idea) => {
+    const matchesClient = idea.client === selectedClient;
+
+    const matchesSearch =
+      idea.title.toLowerCase().includes(search.toLowerCase()) ||
+      idea.twist.toLowerCase().includes(search.toLowerCase()) ||
+      idea.tags?.some((tag) =>
+        tag.toLowerCase().includes(search.toLowerCase())
+      );
+
+    return matchesClient && matchesSearch;
+  });
+
+  const selected =
+    filteredIdeas.find((idea) => idea.id === selectedIdeaId) ??
+    filteredIdeas[0] ??
+    typedIdeas[0];
+
+  function handleClientClick(client: string) {
+    setSelectedClient(client);
+    setSelectedIdeaId(null);
+    setEditingSection(null);
+    setDraftText("");
+  }
+
+  function startEditing(sectionKey: string, currentValue: string) {
+    setEditingSection(sectionKey);
+    setDraftText(currentValue || "");
+  }
+
+  async function saveSection(sectionKey: string) {
+    if (!selected) return;
+
+    const updatedIdea = structuredClone(selected);
+
+    if (!updatedIdea.sections) {
+      updatedIdea.sections = {};
+    }
+
+    if (sectionKey === "logicalSynopsis") {
+      updatedIdea.sections.logicalSynopsis = draftText;
+    }
+
+    if (sectionKey === "suggestedVisuals") {
+      updatedIdea.sections.suggestedVisuals = draftText
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+    }
+
+    if (sectionKey === "multiShotSequence") {
+      updatedIdea.sections.multiShotSequence = draftText
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+    }
+
+    if (sectionKey === "imagePrompt") {
+      updatedIdea.sections.imagePrompt = draftText;
+    }
+
+    if (sectionKey === "videoPrompt") {
+      updatedIdea.sections.videoPrompt = draftText;
+    }
+
+    if (sectionKey === "notes") {
+      updatedIdea.sections.notes = draftText;
+    }
+
+    const res = await fetch("/api/update-idea", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedIdea),
+    });
+
+    if (res.ok) {
+      setTypedIdeas((prev) =>
+        prev.map((idea) => (idea.id === updatedIdea.id ? updatedIdea : idea))
+      );
+
+      setEditingSection(null);
+      setDraftText("");
+      setSaveMessage("Saved");
+      setTimeout(() => setSaveMessage(""), 1500);
+    } else {
+      setSaveMessage("Save failed");
+    }
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main style={styles.page}>
+      <aside style={styles.sidebar}>
+        <h1 style={styles.logo}>Idea Bank</h1>
+        <p style={styles.small}>KI-Akademi / Cuz Media</p>
+
+        <h3 style={styles.sectionTitle}>Kunder</h3>
+
+        {clients.map((client: any) => (
+          <button
+            key={client.name}
+            onClick={() => handleClientClick(client.name)}
+            style={{
+              ...styles.client,
+              background: client.name === selectedClient ? "#111" : "#f2f2f2",
+              color: client.name === selectedClient ? "#fff" : "#111",
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            {client.name}
+          </button>
+        ))}
+
+        <a href="/admin" style={styles.adminButton}>
+          Admin
+        </a>
+      </aside>
+
+      <section style={styles.list}>
+        <div style={styles.topbar}>
+          <div>
+            <h2 style={styles.heading}>{selectedClient}</h2>
+            <p style={styles.small}>
+              {filteredIdeas.length} ideer i denne kategorien
+            </p>
+          </div>
+
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search ideas..."
+            style={styles.search}
+          />
+
+          <a href="/admin" style={styles.buttonLink}>
+            + Ny idé
+          </a>
+        </div>
+
+        <div style={styles.grid}>
+          {filteredIdeas.map((idea, index) => (
+            <button
+              key={idea.id}
+              onClick={() => {
+                setSelectedIdeaId(idea.id);
+                setEditingSection(null);
+                setDraftText("");
+              }}
+              style={{
+                ...styles.card,
+                border:
+                  selected?.id === idea.id
+                    ? "2px solid #111"
+                    : "1px solid #e5e0d8",
+              }}
+            >
+              <div style={styles.number}>{index + 1}</div>
+
+              <h3 style={styles.cardTitle}>{idea.title}</h3>
+              <p style={styles.text}>{idea.twist}</p>
+
+              <div style={styles.meta}>
+                <span style={styles.badge}>{idea.status}</span>
+
+                {idea.tags?.map((tag) => (
+                  <span key={tag} style={styles.tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <aside style={styles.detail}>
+        <p style={styles.small}>Valgt idé</p>
+
+        {saveMessage && <div style={styles.saveMessage}>{saveMessage}</div>}
+
+        {selected ? (
+          <>
+            <h2 style={styles.detailTitle}>{selected.title}</h2>
+
+            <div style={styles.detailBlock}>
+              <h4>Core idea</h4>
+              <p>
+                <strong>Premiss:</strong>{" "}
+                {selected.sections?.coreIdea?.premise || selected.premise}
+              </p>
+              <p>
+                <strong>Twist:</strong>{" "}
+                {selected.sections?.coreIdea?.twist || selected.twist}
+              </p>
+            </div>
+
+            <EditableTextBlock
+              title="Logical synopsis"
+              sectionKey="logicalSynopsis"
+              value={selected.sections?.logicalSynopsis || ""}
+              fallback="Ikke fylt inn ennå."
+              editingSection={editingSection}
+              draftText={draftText}
+              setDraftText={setDraftText}
+              startEditing={startEditing}
+              saveSection={saveSection}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+            <EditableListBlock
+              title="Suggested visuals"
+              sectionKey="suggestedVisuals"
+              items={selected.sections?.suggestedVisuals || []}
+              ordered={false}
+              editingSection={editingSection}
+              draftText={draftText}
+              setDraftText={setDraftText}
+              startEditing={startEditing}
+              saveSection={saveSection}
+            />
+
+            <EditableListBlock
+              title="Multi-shot sequence"
+              sectionKey="multiShotSequence"
+              items={selected.sections?.multiShotSequence || []}
+              ordered
+              editingSection={editingSection}
+              draftText={draftText}
+              setDraftText={setDraftText}
+              startEditing={startEditing}
+              saveSection={saveSection}
+            />
+
+            <EditableTextBlock
+              title="AI image prompt"
+              sectionKey="imagePrompt"
+              value={selected.sections?.imagePrompt || ""}
+              fallback="Ikke fylt inn ennå."
+              dark
+              editingSection={editingSection}
+              draftText={draftText}
+              setDraftText={setDraftText}
+              startEditing={startEditing}
+              saveSection={saveSection}
+            />
+
+            <EditableTextBlock
+              title="AI video prompt"
+              sectionKey="videoPrompt"
+              value={selected.sections?.videoPrompt || ""}
+              fallback="Ikke fylt inn ennå."
+              dark
+              editingSection={editingSection}
+              draftText={draftText}
+              setDraftText={setDraftText}
+              startEditing={startEditing}
+              saveSection={saveSection}
+            />
+
+            <EditableTextBlock
+              title="Notes"
+              sectionKey="notes"
+              value={selected.sections?.notes || ""}
+              fallback="Ingen notater."
+              editingSection={editingSection}
+              draftText={draftText}
+              setDraftText={setDraftText}
+              startEditing={startEditing}
+              saveSection={saveSection}
+            />
+          </>
+        ) : (
+          <p>Ingen idé valgt.</p>
+        )}
+      </aside>
+    </main>
+  );
+}
+
+function EditableTextBlock({
+  title,
+  sectionKey,
+  value,
+  fallback,
+  dark = false,
+  editingSection,
+  draftText,
+  setDraftText,
+  startEditing,
+  saveSection,
+}: {
+  title: string;
+  sectionKey: string;
+  value: string;
+  fallback: string;
+  dark?: boolean;
+  editingSection: string | null;
+  draftText: string;
+  setDraftText: (value: string) => void;
+  startEditing: (sectionKey: string, currentValue: string) => void;
+  saveSection: (sectionKey: string) => void;
+}) {
+  const isEditing = editingSection === sectionKey;
+
+  return (
+    <div style={dark ? styles.promptBlock : styles.detailBlock}>
+      <div style={styles.blockHeader}>
+        <h4>{title}</h4>
+
+        <button
+          style={dark ? styles.smallButtonDark : styles.smallButton}
+          onClick={() => startEditing(sectionKey, value)}
+        >
+          Edit
+        </button>
+      </div>
+
+      {isEditing ? (
+        <>
+          <textarea
+            value={draftText}
+            onChange={(e) => setDraftText(e.target.value)}
+            style={styles.inlineTextarea}
+          />
+
+          <button
+            style={dark ? styles.saveButtonLight : styles.saveButton}
+            onClick={() => saveSection(sectionKey)}
           >
-            Documentation
-          </a>
-        </div>
-      </main>
+            Save
+          </button>
+        </>
+      ) : (
+        <p>{value || fallback}</p>
+      )}
     </div>
   );
 }
+
+function EditableListBlock({
+  title,
+  sectionKey,
+  items,
+  ordered = false,
+  editingSection,
+  draftText,
+  setDraftText,
+  startEditing,
+  saveSection,
+}: {
+  title: string;
+  sectionKey: string;
+  items: string[];
+  ordered?: boolean;
+  editingSection: string | null;
+  draftText: string;
+  setDraftText: (value: string) => void;
+  startEditing: (sectionKey: string, currentValue: string) => void;
+  saveSection: (sectionKey: string) => void;
+}) {
+  const isEditing = editingSection === sectionKey;
+  const currentValue = items.join("\n");
+  const ListTag = ordered ? "ol" : "ul";
+
+  return (
+    <div style={styles.detailBlock}>
+      <div style={styles.blockHeader}>
+        <h4>{title}</h4>
+
+        <button
+          style={styles.smallButton}
+          onClick={() => startEditing(sectionKey, currentValue)}
+        >
+          Edit
+        </button>
+      </div>
+
+      {isEditing ? (
+        <>
+          <textarea
+            value={draftText}
+            onChange={(e) => setDraftText(e.target.value)}
+            style={styles.inlineTextarea}
+            placeholder="One item per line"
+          />
+
+          <button
+            style={styles.saveButton}
+            onClick={() => saveSection(sectionKey)}
+          >
+            Save
+          </button>
+        </>
+      ) : items.length > 0 ? (
+        <ListTag style={styles.listItems}>
+          {items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ListTag>
+      ) : (
+        <p>Ikke fylt inn ennå.</p>
+      )}
+    </div>
+  );
+}
+
+const styles: Record<string, React.CSSProperties> = {
+  page: {
+    display: "grid",
+    gridTemplateColumns: "260px 1fr 420px",
+    minHeight: "100vh",
+    background: "#faf7f0",
+    color: "#111",
+    fontFamily: "Arial, sans-serif",
+  },
+  sidebar: {
+    padding: 24,
+    borderRight: "1px solid #ddd",
+    background: "#fff",
+  },
+  logo: {
+    margin: 0,
+    fontSize: 28,
+  },
+  small: {
+    color: "#777",
+    fontSize: 14,
+  },
+  sectionTitle: {
+    marginTop: 32,
+    fontSize: 13,
+    textTransform: "uppercase",
+    letterSpacing: 1,
+    color: "#777",
+  },
+  client: {
+    display: "block",
+    width: "100%",
+    textAlign: "left",
+    padding: "12px 14px",
+    borderRadius: 12,
+    marginBottom: 8,
+    fontWeight: 700,
+    border: 0,
+    cursor: "pointer",
+  },
+  list: {
+    padding: 32,
+  },
+  topbar: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 28,
+    gap: 16,
+  },
+  heading: {
+    fontSize: 36,
+    margin: 0,
+  },
+  button: {
+    background: "#111",
+    color: "#fff",
+    border: 0,
+    borderRadius: 999,
+    padding: "12px 18px",
+    fontWeight: 700,
+    cursor: "pointer",
+  },
+  buttonLink: {
+    background: "#111",
+    color: "#fff",
+    border: 0,
+    borderRadius: 999,
+    padding: "12px 18px",
+    fontWeight: 700,
+    cursor: "pointer",
+    textDecoration: "none",
+    whiteSpace: "nowrap",
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+    gap: 18,
+  },
+  card: {
+    background: "#fff",
+    borderRadius: 20,
+    padding: 20,
+    boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
+    textAlign: "left",
+    cursor: "pointer",
+  },
+  number: {
+    width: 32,
+    height: 32,
+    borderRadius: 999,
+    background: "#111",
+    color: "#fff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 14,
+    fontWeight: 700,
+  },
+  cardTitle: {
+    fontSize: 20,
+    marginBottom: 8,
+  },
+  text: {
+    color: "#444",
+    lineHeight: 1.45,
+  },
+  meta: {
+    display: "flex",
+    gap: 8,
+    flexWrap: "wrap",
+    marginTop: 16,
+  },
+  badge: {
+    background: "#d7ffd9",
+    color: "#0b5c16",
+    padding: "6px 10px",
+    borderRadius: 999,
+    fontSize: 12,
+    fontWeight: 700,
+  },
+  tag: {
+    background: "#f0f0f0",
+    padding: "6px 10px",
+    borderRadius: 999,
+    fontSize: 12,
+  },
+  detail: {
+    padding: 24,
+    background: "#fff",
+    borderLeft: "1px solid #ddd",
+    overflowY: "auto",
+    maxHeight: "100vh",
+  },
+  detailTitle: {
+    marginTop: 0,
+    fontSize: 24,
+  },
+  detailBlock: {
+    background: "#faf7f0",
+    border: "1px solid #e5e0d8",
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 14,
+    lineHeight: 1.45,
+  },
+  promptBlock: {
+    background: "#111",
+    color: "#fff",
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 14,
+    lineHeight: 1.45,
+    fontSize: 14,
+  },
+  listItems: {
+    paddingLeft: 20,
+    margin: 0,
+    lineHeight: 1.45,
+  },
+  adminButton: {
+    display: "block",
+    marginTop: 30,
+    padding: "12px 14px",
+    borderRadius: 12,
+    background: "#eaeaea",
+    textDecoration: "none",
+    color: "#111",
+    fontWeight: 700,
+    textAlign: "center",
+  },
+  search: {
+    padding: "12px 14px",
+    borderRadius: 999,
+    border: "1px solid #ddd",
+    width: 240,
+  },
+  saveMessage: {
+    background: "#d7ffd9",
+    color: "#0b5c16",
+    padding: "8px 12px",
+    borderRadius: 999,
+    fontSize: 13,
+    fontWeight: 700,
+    marginBottom: 12,
+  },
+  blockHeader: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: 12,
+  },
+  smallButton: {
+    border: "1px solid #ddd",
+    background: "#fff",
+    borderRadius: 999,
+    padding: "6px 10px",
+    cursor: "pointer",
+    fontWeight: 700,
+  },
+  smallButtonDark: {
+    border: "1px solid #444",
+    background: "#222",
+    color: "#fff",
+    borderRadius: 999,
+    padding: "6px 10px",
+    cursor: "pointer",
+    fontWeight: 700,
+  },
+  inlineTextarea: {
+    width: "100%",
+    minHeight: 120,
+    padding: 12,
+    borderRadius: 12,
+    border: "1px solid #ddd",
+    marginBottom: 10,
+    fontFamily: "Arial, sans-serif",
+    lineHeight: 1.45,
+  },
+  saveButton: {
+    background: "#111",
+    color: "#fff",
+    border: 0,
+    borderRadius: 999,
+    padding: "8px 14px",
+    cursor: "pointer",
+    fontWeight: 700,
+  },
+  saveButtonLight: {
+    background: "#fff",
+    color: "#111",
+    border: 0,
+    borderRadius: 999,
+    padding: "8px 14px",
+    cursor: "pointer",
+    fontWeight: 700,
+  },
+};

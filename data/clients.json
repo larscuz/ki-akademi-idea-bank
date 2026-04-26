@@ -1,0 +1,42 @@
+[
+  {
+    "id": "viking-planet",
+    "name": "Viking Planet"
+  },
+  {
+    "id": "arctic-trucks",
+    "name": "Arctic Trucks"
+  },
+  {
+    "id": "mini-bottle-gallery",
+    "name": "Mini Bottle Gallery"
+  },
+  {
+    "id": "paradox-museum-oslo",
+    "name": "Paradox Museum Oslo"
+  },
+  {
+    "id": "visit-oslo",
+    "name": "Visit Oslo"
+  },
+  {
+    "id": "ostern-brug",
+    "name": "Østern Brug"
+  },
+  {
+    "id": "edge-performance",
+    "name": "Edge Performance"
+  },
+  {
+    "id": "ki-akademi",
+    "name": "KI-Akademi"
+  },
+  {
+    "id": "generic",
+    "name": "Generic / Unassigned"
+  },
+  {
+    "id": "test-client",
+    "name": "Test Client"
+  }
+]
