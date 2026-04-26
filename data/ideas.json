@@ -541,5 +541,268 @@
       "notes": "Kan lages med kroppstracking og AI-transformasjon."
     },
     "client": "Paradox Museum Oslo"
+  },
+  {
+    "id": "vo-017",
+    "title": "Nothing to See Here",
+    "status": "concept",
+    "category": "Reverse statement",
+    "premise": "Et skilt sier at det ikke er noe å se.",
+    "twist": "Bak skiltet er noe spektakulært.",
+    "tags": [
+      "reverse",
+      "deadpan",
+      "minimal"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Nothing to see here.",
+        "twist": "Det er alt å se."
+      },
+      "logicalSynopsis": "Et enkelt skilt står foran kamera: 'Nothing to see here.' Kamera beveger seg sakte forbi det — og avslører spektakulær Oslo-natur bak.",
+      "suggestedVisuals": [
+        "Minimal sign shot",
+        "Slow reveal movement",
+        "Unexpected grand landscape"
+      ],
+      "multiShotSequence": [
+        "Static shot of sign.",
+        "Camera moves past.",
+        "Large reveal."
+      ],
+      "notes": "Ekstremt enkel og elegant."
+    },
+    "client": "Visit Oslo"
+  },
+  {
+    "id": "mbg-004-v2",
+    "title": "Alle historiene starter likt",
+    "status": "survived",
+    "category": "Story structure",
+    "premise": "Alle historier starter likt.",
+    "twist": "Men de blir alltid helt forskjellige.",
+    "tags": [
+      "story",
+      "smart",
+      "series"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Alle historier begynner med samme setning.",
+        "twist": "Hver flaske har en helt unik historie."
+      },
+      "logicalSynopsis": "En person holder en flaske og sier: 'Alle historiene starter likt.' Deretter forteller de historien bak flasken — en reise, en gave, et sted. Cut til en ny flaske. Ny person sier igjen: 'Alle historiene starter likt.' En helt ny historie følger.",
+      "suggestedVisuals": [
+        "Different bottles held by different people",
+        "Calm storytelling moments",
+        "Distinct environments for each story"
+      ],
+      "multiShotSequence": [
+        "Person holds bottle.",
+        "Says: 'Alle historiene starter likt.'",
+        "Story unfolds visually.",
+        "Cut to new bottle.",
+        "Same sentence repeated."
+      ],
+      "notes": "Sterk serie-idé — kan utvides til mange historier."
+    },
+    "client": "Mini Bottle Gallery"
+  },
+  {
+    "id": "mbg-009",
+    "client": "Mini Bottle Gallery",
+    "title": "Gordon's — Den første flasken",
+    "status": "survived",
+    "category": "Origin story",
+    "premise": "Alle historier starter likt.",
+    "twist": "Denne startet med én gave — og ble til verdens største samling.",
+    "tags": [
+      "origin",
+      "history",
+      "gordons"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Alle historier starter likt.",
+        "twist": "Denne startet med én flaske i 1961."
+      },
+      "logicalSynopsis": "En person holder en liten Gordon’s-flaske og sier: 'Alle historiene starter likt.' Vi ser en far gi en liten flaske til sønnen i 1961. Hyllen bak begynner å fylle seg — én flaske blir til mange. Til slutt fyller flasker hele rommet.",
+      "suggestedVisuals": [
+        "Small Gordon's miniature bottle in hand",
+        "1961-style father giving bottle",
+        "Shelf slowly filling with bottles",
+        "Room filled with thousands of bottles"
+      ],
+      "multiShotSequence": [
+        "Close-up: Gordon's miniature bottle.",
+        "Cut: Father handing bottle.",
+        "Shelf begins filling.",
+        "Room becomes full of bottles."
+      ],
+      "notes": "Basert på museets faktiske opprinnelse — første flaske gitt av faren i 1961."
+    }
+  },
+  {
+    "id": "mbg-010",
+    "client": "Mini Bottle Gallery",
+    "title": "KLM-husene — Historier fra lufta",
+    "status": "survived",
+    "category": "Travel history",
+    "premise": "Alle historier starter likt.",
+    "twist": "Denne startet i et fly — og landet aldri.",
+    "tags": [
+      "klm",
+      "travel",
+      "collecting"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Alle historier starter likt.",
+        "twist": "Denne startet ombord på et fly."
+      },
+      "logicalSynopsis": "En person holder et lite KLM Delft-hus og sier: 'Alle historiene starter likt.' Vi ser en flypassasjer få det lille huset. Flere fly. Flere hus. Til slutt står en hel rekke små hus samlet — som en egen liten by.",
+      "suggestedVisuals": [
+        "Mini Delft house bottle",
+        "Passenger receiving miniature on airplane",
+        "Many houses collected over time",
+        "Row of miniature houses forming a small street"
+      ],
+      "multiShotSequence": [
+        "Close-up: Delft house bottle.",
+        "Passenger receiving miniature.",
+        "Collection growing.",
+        "Miniature street reveal."
+      ],
+      "notes": "Basert på KLMs Delft-hus tradisjon siden 1952 — svært kjent samlerobjekt."
+    }
+  },
+  {
+    "id": "mbg-011",
+    "client": "Mini Bottle Gallery",
+    "title": "Absolut — Startet som medisin",
+    "status": "survived",
+    "category": "Design history",
+    "premise": "Alle historier starter likt.",
+    "twist": "Denne startet som en apotekerflaske.",
+    "tags": [
+      "absolut",
+      "design",
+      "history"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Alle historier starter likt.",
+        "twist": "Denne startet som en gammel medisinsk flaske."
+      },
+      "logicalSynopsis": "En person holder en liten Absolut-flaske og sier: 'Alle historiene starter likt.' Vi ser en gammel apotekerflaske fra 1800-tallet. Formen videreføres — til slutt ser vi den moderne Absolut-flasken.",
+      "suggestedVisuals": [
+        "Absolut miniature bottle",
+        "Old pharmacy bottle reference",
+        "Glass form evolving through time",
+        "Modern Absolut bottle revealed"
+      ],
+      "multiShotSequence": [
+        "Close-up: Absolut miniature.",
+        "Old pharmacy bottle appears.",
+        "Shape transitions.",
+        "Modern Absolut form revealed."
+      ],
+      "notes": "Basert på Absoluts designhistorie inspirert av svensk apotekerflaske."
+    }
+  },
+  {
+    "id": "pm-002",
+    "client": "Paradox Museum Oslo",
+    "title": "Du ser det — før det skjer",
+    "status": "concept",
+    "category": "Time paradox",
+    "premise": "En hendelse skjer.",
+    "twist": "Du ser konsekvensen før årsaken.",
+    "tags": [
+      "time",
+      "paradox",
+      "visual"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "En hendelse vises.",
+        "twist": "Den skjer baklengs."
+      },
+      "logicalSynopsis": "En kopp ligger knust på gulvet. Kamera går bakover — koppen hopper opp igjen og faller til slutt fra bordet.",
+      "suggestedVisuals": [
+        "Broken object on floor",
+        "Reverse movement",
+        "Object falling last"
+      ],
+      "multiShotSequence": [
+        "Broken cup.",
+        "Reverse rebuild.",
+        "Cup falls."
+      ],
+      "notes": "Ren visuell paradoks — enkel produksjon."
+    }
+  },
+  {
+    "id": "pm-004",
+    "client": "Paradox Museum Oslo",
+    "title": "Du er eldre enn du tror",
+    "status": "concept",
+    "category": "Scientific paradox",
+    "premise": "Du ser deg selv i speilet.",
+    "twist": "Du ser deg selv litt i fortiden.",
+    "tags": [
+      "science",
+      "truth",
+      "paradox"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Speilet viser deg nå.",
+        "twist": "Det viser deg fortiden."
+      },
+      "logicalSynopsis": "En person ser seg i speilet. Tekst vises: 'Du ser deg selv slik du var.' En liten pause. 'Lyset bruker tid.'"
+    }
+  },
+  {
+    "id": "pm-010",
+    "client": "Paradox Museum Oslo",
+    "title": "Du bruker mesteparten av livet på å vente",
+    "status": "concept",
+    "category": "Dark life truth",
+    "premise": "Du lever livet ditt.",
+    "twist": "Du venter mesteparten av det.",
+    "tags": [
+      "dark humor",
+      "life",
+      "truth"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Livet føles aktivt.",
+        "twist": "Det består av venting."
+      },
+      "logicalSynopsis": "En person står i kø. Tekst: 'Bare et øyeblikk.' Cut: ny kø. Ny venting. Ny venting. Tekst til slutt: 'Du kommer til å vente mer enn du tror.'"
+    }
+  },
+  {
+    "id": "pm-013",
+    "client": "Paradox Museum Oslo",
+    "title": "Du husker ikke de fleste dagene dine",
+    "status": "concept",
+    "category": "Memory paradox",
+    "premise": "Du lever tusenvis av dager.",
+    "twist": "Du husker bare noen få.",
+    "tags": [
+      "memory",
+      "dark humor",
+      "life"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Hver dag føles viktig.",
+        "twist": "De fleste blir glemt."
+      },
+      "logicalSynopsis": "Kalenderblader blar raskt forbi. Stopper på noen få datoer. Tekst: 'Dette er livet ditt.'"
+    }
   }
 ]
