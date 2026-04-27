@@ -178,7 +178,8 @@
       "imagePrompt": "A tourist in modern Oslo taking a selfie, but on the phone screen he appears as a Viking version of himself, realistic city background, humorous cinematic ad image, clean composition.",
       "videoPrompt": "A short cinematic ad sequence. A tourist in modern Oslo tries to take a selfie. He adjusts the phone several times. When he looks at the screen, he sees himself transformed into a Viking, while the real world remains normal. Subtle humor, realistic, visually clear.",
       "notes": ""
-    }
+    },
+    "order": 2
   },
   {
     "id": "vp-002",
@@ -214,7 +215,8 @@
       "imagePrompt": "A middle-aged man wearing VR goggles inside an immersive Viking experience, while realistic Vikings inside the simulation stare at him and react to his clumsy behavior, humorous, cinematic, high realism.",
       "videoPrompt": "A comedic multi-shot VR ad sequence. A middle-aged man puts on VR goggles at Viking Planet. Inside the Viking world, the Vikings can see him and react in real time. He behaves clumsily, drops weapons and misunderstands the situation. The Vikings respond like intelligent characters, judging him with dry humor. Realistic, immersive, funny.",
       "notes": ""
-    }
+    },
+    "order": 3
   },
   {
     "id": "vp-003",
@@ -250,7 +252,8 @@
       "imagePrompt": "Modern Oslo street scene where everyone except one confused man is dressed as Vikings but behaving completely normally, cinematic absurd comedy, realistic daylight, clean visual gag.",
       "videoPrompt": "A surreal comedy ad sequence in modern Oslo. A normal man walks through the city and slowly realizes everyone else is a Viking: buying coffee, riding scooters, waiting for the tram. Nobody reacts. He is the only one who finds it strange. Realistic, understated humor.",
       "notes": ""
-    }
+    },
+    "order": 4
   },
   {
     "id": "vp-004",
@@ -286,7 +289,8 @@
       "imagePrompt": "Vikings entering a mysterious cave and appearing as holographic figures inside a modern Viking museum, staring at modern visitors who stare back at them, meta museum concept, cinematic, realistic.",
       "videoPrompt": "A cinematic meta-comedy sequence. Vikings dare each other to enter a mysterious cave. When they step inside, they appear as hologram-like figures inside Viking Planet in modern Oslo. They look at strange modern visitors, while the visitors look back at them as an exhibition. Both sides are on display.",
       "notes": ""
-    }
+    },
+    "order": 1
   },
   {
     "id": "vp-005",
@@ -322,7 +326,8 @@
       "imagePrompt": "An epic Viking battle frozen mid-action with a giant loading icon in the sky, realistic cinematic historical scene with absurd digital humor, dramatic lighting.",
       "videoPrompt": "A cinematic Viking battle sequence begins with full dramatic energy. Just before the first clash, everything freezes. A giant loading icon appears in the sky. The Vikings look up, confused and annoyed. Historical realism meets modern digital absurdity.",
       "notes": ""
-    }
+    },
+    "order": 5
   },
   {
     "id": "vp-006",
@@ -358,7 +363,8 @@
       "imagePrompt": "A group of Vikings gathered around an ancient runestone that functions like a comment section, reading reviews about themselves, offended and serious, cinematic historical comedy, realistic.",
       "videoPrompt": "A comedic historical sequence. Vikings gather around a runestone with great seriousness. The runes start behaving like a modern comment section. One Viking reads a negative review aloud. The group becomes deeply offended. Realistic Viking world, dry humor.",
       "notes": ""
-    }
+    },
+    "order": 6
   },
   {
     "id": "vp-007",
@@ -394,7 +400,8 @@
       "imagePrompt": "A dramatic Viking ship parked incorrectly in modern Oslo while a parking officer calmly writes a ticket, cinematic absurd comedy, realistic city and historical contrast.",
       "videoPrompt": "A cinematic comedy sequence. A Viking ship arrives dramatically in modern Oslo. Vikings step ashore with heroic energy. A calm parking officer walks into frame, writes a parking ticket and attaches it to the ship. The Vikings stare in disbelief.",
       "notes": ""
-    }
+    },
+    "order": 7
   },
   {
     "id": "vp-008",
@@ -430,7 +437,8 @@
       "imagePrompt": "A Viking receiving a new sword from a blacksmith, only to discover it requires a subscription before use, cinematic historical comedy, realistic, absurd modern tech logic.",
       "videoPrompt": "A cinematic Viking comedy sequence. A blacksmith presents a powerful new sword. The Viking lifts it proudly, but nothing happens. A subtle subscription-required message appears. The Viking slowly lowers the sword, confused and offended.",
       "notes": ""
-    }
+    },
+    "order": 8
   },
   {
     "id": "vp-009",
@@ -466,7 +474,8 @@
       "imagePrompt": "A Viking looting gold dramatically, then pausing to politely ask for a receipt, cinematic historical comedy, realistic, absurd bureaucratic humor.",
       "videoPrompt": "A short comedic Viking sequence. A Viking dramatically loots gold from a hall. Just as he turns to leave, he stops, looks back and politely asks for a receipt. The room goes silent. Realistic Viking setting, dry humor.",
       "notes": ""
-    }
+    },
+    "order": 9
   },
   {
     "id": "ep-001",
@@ -846,6 +855,46 @@
       "imagePrompt": "A beautiful romantic hotel room shown from the same angle across multiple time periods. Different couples appear in the same room in different decades, with changing clothing, hairstyles, luggage, and styling details, while the room itself remains recognizable and constant. Emotional, elegant, cinematic, warm lighting, timeless atmosphere.",
       "videoPrompt": "A cinematic sequence set in the same unique hotel room across different time periods. Show different couples arriving for romantic stays in the exact same room over several decades. Each era changes the wardrobe, hair, luggage, and subtle styling details, while the room remains visually consistent. Use match cuts between eras. The emotional tone is romantic, nostalgic, elegant, and warm. End on the empty room, as if it remembers every story.",
       "notes": "Sterk fordi AI kan gjøre tidshopp og stilskifter enkelt, mens rommet forblir konstant. Føles både emosjonell og premium."
+    }
+  },
+  {
+    "id": "ob-003",
+    "client": "Østern Brug",
+    "title": "Du tror du skal lære å styre",
+    "status": "survived",
+    "category": "Poetic truth",
+    "premise": "En ny rytter kommer for å lære kontroll.",
+    "twist": "Det første hun egentlig lærer, er ikke å styre hesten — men å styre seg selv.",
+    "tags": [
+      "horse",
+      "truth",
+      "poetic",
+      "self-control",
+      "riding"
+    ],
+    "sections": {
+      "coreIdea": {
+        "premise": "Du tror ridning handler om å styre et annet vesen.",
+        "twist": "Det viser seg at det først handler om å styre deg selv."
+      },
+      "logicalSynopsis": "En ny rytter kommer til Østern med forventningen om å lære teknikk, kontroll og kommandoer. Vi ser små øyeblikk av forberedelse: pust, hender, blikk, stillhet ved siden av hesten. Fortellingen leder oss mot tanken om at hun skal lære å kontrollere hesten. Men den egentlige innsikten er at hesten reagerer på henne slik hun er. Det første hun må mestre, er derfor ikke dyret, men seg selv.",
+      "suggestedVisuals": [
+        "Ung rytter ved siden av hesten før timen",
+        "Nærbilder av pust, hånd på tøylen, blikk",
+        "Rolige øyeblikk før oppsitting",
+        "Instruktør i bakgrunnen, lite snakk",
+        "Hesten som speiler rytteren"
+      ],
+      "multiShotSequence": [
+        "Wide shot: rytteren ankommer stallen.",
+        "Close-up: hun gjør seg klar, litt spent.",
+        "Detail shots: hånd, pust, hestens øre, blikk.",
+        "Medium shot: hun står stille ved siden av hesten.",
+        "Final shot: hun er roligere, og først da begynner samspillet."
+      ],
+      "imagePrompt": "A poetic cinematic scene at a Norwegian riding school. A young rider stands beside a calm horse before a lesson. The mood is reflective, quiet, and emotionally intelligent. Close attention to breath, posture, hands, and the horse's subtle reactions. Natural light, understated elegance, realistic, sophisticated, emotionally grounded.",
+      "videoPrompt": "A cinematic, poetic sequence at a Norwegian riding centre. A new rider arrives expecting to learn control and riding technique. Show quiet moments of preparation: breath, hands, posture, the horse's ear turning, a pause before mounting. The emotional revelation is that the rider is not first learning to control the horse, but to control herself. Realistic, elegant, minimal, emotionally sophisticated, natural light, subtle storytelling.",
+      "notes": "Sterk fordi den føles som en sannhet. Enkel å produsere, men med voksen og poetisk tyngde."
     }
   }
 ]

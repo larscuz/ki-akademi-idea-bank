@@ -35,18 +35,28 @@
     "order": 7
   },
   {
+    "id": "monument-media",
+    "name": "Monument media",
+    "order": 8
+  },
+  {
+    "id": "tilkommer-(hubert-kunde)",
+    "name": "Tilkommer (Hubert kunde)",
+    "order": 9
+  },
+  {
     "id": "visit-oslo",
     "name": "Visit Oslo",
-    "order": 8
+    "order": 10
   },
   {
     "id": "ki-akademi",
     "name": "KI-Akademi",
-    "order": 9
+    "order": 11
   },
   {
     "id": "generic",
     "name": "Generic / Unassigned",
-    "order": 10
+    "order": 12
   }
 ]
